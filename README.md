@@ -2,23 +2,23 @@
 
 
 ## Step 1. install react-redux and redux toolkit
- npm install @reduxjs/toolkit react-redux 
+``` npm install @reduxjs/toolkit react-redux ```
 
 
 ## Step 2. Create a Redux Store
 Create store in  in src/app/store.js. This is our main store, we will access all the state from this store
 
- javascript 
+``` javascript 
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({
   reducer: {},
 })
-
+```
 
 
 ## Step 3. Provide the Redux Store to React
- javascript
+``` javascript
 
 import { store } from './app/store'
 import { Provider } from 'react-redux'
@@ -26,11 +26,11 @@ import { Provider } from 'react-redux'
 <Provider store={store}>
     <App />
 </Provider>
-
+```
 
 
 ## Step 4. Create a Redux State Slice
- javascript 
+``` javascript 
 // import create slice
 import { createSlice } from '@reduxjs/toolkit'
 
@@ -69,11 +69,11 @@ export const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByValue } = counterSlice.actions;
 export default counterSlice.reducer;
-
+```
 
 
 ## Step 5. Add Slice Reducers to the Store
- javascript 
+``` javascript 
 // import configureStore
 import { configureStore } from "@reduxjs/toolkit";
 
@@ -88,17 +88,18 @@ export const store = configureStore({
         abc: abcReducer
     }
 });
-
+```
 
 
 ## Step 6. Access our states
 we can access states using useSelector() hook
- javascript 
+``` javascript 
 const count = useSelector(store => store.counter.countValue); 
- 
+``` 
 
 
 ## Step 7. Update states
 we can update states using useDispatch() hook
- javascript 
+``` javascript 
 const dispatch = useDispatch()
+``` 
